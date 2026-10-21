@@ -27,17 +27,18 @@ int main(int argc, char** argv) {
   }
 
   string text;
-  getline(cin, text);
-  int ednum = (ed == "-e") ? 1 : -1;
-  int shift = stoi(key) % 26 * ednum;
-  for (unsigned int i = 0; i < text.size(); ++i) {
-    if (islower(text[i])) {
-      text[i] = 'a' + (text[i] - 'a' + shift + 26) % 26;
-    } else if (isupper(text[i])) {
-      text[i] = 'A' + (text[i] - 'A' + shift + 26) % 26;
+  while (getline(cin, text)) {
+    int ednum = (ed == "-e") ? 1 : -1;
+    int shift = stoi(key) % 26 * ednum;
+    for (unsigned int i = 0; i < text.size(); ++i) {
+      if (islower(text[i])) {
+        text[i] = 'a' + (text[i] - 'a' + shift + 26) % 26;
+      } else if (isupper(text[i])) {
+        text[i] = 'A' + (text[i] - 'A' + shift + 26) % 26;
+      }
     }
+    cout << text << endl;
   }
-  cout << text << endl;
   
   return 0;
 }

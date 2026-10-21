@@ -41,14 +41,15 @@ int main(int argc, char** argv) {
   }
 
   string text;
-  getline(cin, text);
-  bool ednum = (ed == "-e") ? 1 : 0;
-  if (ednum) {
-    encrypt(key, text);
-  } else {
-    decrypt(key, text);
+  while (getline(cin, text)) {
+    bool ednum = (ed == "-e") ? 1 : 0;
+    if (ednum) {
+      encrypt(key, text);
+    } else {
+      decrypt(key, text);
+    }
+    cout << text << endl;
   }
-  cout << text << endl;
 
   return 0;
 }
